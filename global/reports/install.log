@@ -1,4 +1,0 @@
-Makefile:719: 警告：覆盖关于目标“all”的配方
-Makefile:294: 警告：忽略关于目标“all”的旧配方
-/usr/bin/mkdir -p '/usr/local/trade/include/global'
-/usr/bin/install -c -m 644 ../src/global.h '/usr/local/trade/include/global/'
