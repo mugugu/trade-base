@@ -1,3 +1,73 @@
-libglobal - Automated trading system library
+```
+# CTP 公共基础库（global.h）
 
-This library provides functionality for automated trading systems.
+## 这是什么
+
+一个 C 语言公共头文件库，为 CTP 期货交易程序提供统一的基础设施：
+- 日志输出（带颜色，区分错误/警告/信息）
+- 错误处理宏（减少重复代码）
+- 常用常量和类型定义（时间、字符串长度等）
+- 线程安全的回调校验宏
+
+## 它能干什么
+
+你不需要在每个 CTP 相关模块里重复写日志、判空、错误处理。  
+直接 `#include <global/global.h>`，然后用：
+
+LOG_ERROR("模块名", "连接失败：%s", reason);
+LOG_INFO("模块名", "登录成功，用户：%s", user_id);
+CHECK_RET(ptr == NULL, LOG_ERROR, -1, "指针为空");
+
+## 在后续产品中的用途
+
+这个库是所有 CTP 产品（登录包、交易包、行情包、策略框架）的共同底座：
+
+CTP 登录基础包   -> 日志输出登录过程、校验回调参数
+CTP 交易核心包   -> 错误处理宏、断线重连日志
+CTP 策略框架     -> 统一的日志格式、时间转换工具
+
+简单说：你买任何一个 CTP 产品，都会附带这个库。
+
+## 安装方法
+
+# 1. 创建一个目录（比如 futures）
+mkdir futures
+cd futures
+
+# 2. 克隆代码
+git clone https://gitee.com/你的用户名/ctp-common.git
+
+# 3. 进入目录
+cd ctp-common
+
+# 4. 配置安装路径（例如 /usr/local/trade）
+./configure --prefix=/usr/local/trade
+
+# 5. 编译
+make
+
+# 6. 安装
+make install
+
+（安装过程会自动配置动态库路径，无需手动操作）
+
+## 验证安装
+
+ls -l /usr/local/trade/include/global/global.h
+
+## 使用方式
+
+安装后，在代码中引用：
+
+#include <global/global.h>
+
+编译时无需指定 -I，因为 /usr/local/trade/include 已经是默认搜索路径
+
+## 开源协议
+
+BSD 3-Clause
+
+## 作者
+
+[木古古] - [20488535.qq.com]
+```
