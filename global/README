@@ -30,36 +30,29 @@ CTP 策略框架     -> 统一的日志格式、时间转换工具
 
 ## 安装方法
 
-# 1. 创建一个目录（比如 futures）
-mkdir futures
-cd futures
+```bash
+chmod +x install.sh
+./install.sh
+```
 
-# 2. 克隆代码
-git clone https://gitee.com/你的用户名/ctp-common.git
-
-# 3. 进入目录
-cd ctp-common
-
-# 4. 配置安装路径（例如 /usr/local/trade）
-./configure --prefix=/usr/local/trade
-
-# 5. 编译
-make
-
-# 6. 安装
-make install
-
-（安装过程会自动配置动态库路径，无需手动操作）
+> 脚本执行说明：
+> - 源码自动克隆到：`~/futures/ctp-common`
+> - 默认安装路径：`/usr/local/trade`
+> - 如需自定义安装路径：`./install.sh /你想要的路径`
 
 ## 验证安装
 
+```bash
 ls -l /usr/local/trade/include/global/global.h
+```
 
 ## 使用方式
 
 安装后，在代码中引用：
 
+```c
 #include <global/global.h>
+```
 
 编译时无需指定 -I，因为 /usr/local/trade/include 已经是默认搜索路径
 
@@ -69,5 +62,5 @@ BSD 3-Clause
 
 ## 作者
 
-[木古古] - [20488535.qq.com]
+[木古古] - [20488535@qq.com]
 ```
