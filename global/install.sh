@@ -25,7 +25,7 @@ cd "$HOME/futures"
 if [ -d "ctp-common" ]; then
    echo "源码目录已存在，跳过克隆"
 else
-   git clone https://gitee.com/你的用户名/ctp-common.git
+   git clone https://github.com/mugugu/trade-base.git
 fi
 
 # 2. 进入目录
